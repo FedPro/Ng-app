@@ -1,0 +1,20 @@
+<p>task-list works!</p>
+
+<div>
+  <input type="text" placeholder="type something" #newItem />
+  <button (click)="add(newItem.value)">+</button>
+
+  <table class="red">
+    <tr *ngFor="let task of tasks; let i = index">
+      <td>
+        <pre [class.is-done]="task.isDone">{{ task.title }}</pre>
+      </td>
+      <td>
+        <button (click)="remove(task.title)">-</button>
+        <button (click)="task.toggleIsDone()">
+          {{ task.isDone ? "Undo" : "Done" }}
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
