@@ -1,11 +1,17 @@
-<div>
-  <div>this is the App Component</div>
-  <br />
-  <span>{{ title }} app is running!</span>
-  <!-- data binding -->
-  <br />
-  <span>{{ componentName }}</span>
-  <br /><br />
-
-  <task-list></task-list>
-</div>
+<header>
+  My Ng app
+  <header>
+    <body>
+      <div>
+        <span>{{ title }} app is running!</span>
+        <!-- data binding -->
+        <br />
+        <span>{{ componentName }}</span>
+        <br />
+        <app-home></app-home>
+        <br />
+        <task-list></task-list>        
+      </div>
+    </body>
+  </header>
+</header>
