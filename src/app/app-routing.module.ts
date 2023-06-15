@@ -5,7 +5,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 
 const routes: Routes = [
   { component: CalendarComponent, path: '' },
-  { component: TaskListComponent, path: 'task' },
+  { component: TaskListComponent, path: 'tasks' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
