@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route  } from '@angular/router'; 
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Route } from '@angular/router';
 
 @Component({
   selector: 'task-list',
@@ -7,12 +8,12 @@ import { ActivatedRoute, Route  } from '@angular/router';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  constructor(private route: ActivatedRoute ) {}
+  constructor(private route: ActivatedRoute) {}
 
-  newTaskTile: string = "";
+  newTaskTile: string = '';
 
   ngOnInit(): void {
-    var date: Date = new Date(this.route.snapshot.params['date'])
+    var date: Date = new Date(this.route.snapshot.params['date']);
     console.log(date);
   }
 
@@ -23,10 +24,13 @@ export class TaskListComponent implements OnInit {
     new Task('List4'),
   ];
 
-  add() {
+  add(taskNgForm: NgForm) {
+
+    if (taskNgForm.touched == false) return;
     //this.tasks.push(new Task(newItem));
     this.tasks.push(new Task(this.newTaskTile));
-    this.newTaskTile = "";
+    //this.newTaskTile = "";
+    taskNgForm.reset();
   }
 
   remove(deleteItem: string) {

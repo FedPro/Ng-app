@@ -1,6 +1,11 @@
 <div>
-  <input type="text" placeholder="Todo" [(ngModel)]="newTaskTile" />
-  <button (click)="add()">+</button>
+  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm"> <!--/*taskNgForm.reset()*/-->
+    <div class="input-group">
+      <input name="taskTitle" type="text" placeholder="Todo" [(ngModel)]="newTaskTile" />
+      <button>+</button>
+    </div>
+  </form>
+
 
   <table class="red">
     <tr *ngFor="let task of tasks; let i = index">
