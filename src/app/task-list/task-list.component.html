@@ -1,5 +1,5 @@
 <div class="taskList">
-  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm">
+  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm" #form>
     <!--/*taskNgForm.reset()*/-->
     <div class="input-group">
       <input
@@ -11,7 +11,7 @@
         placeholder="Todo"
         [(ngModel)]="newTaskTile"
       />
-      <button>+</button>
+      <button [disabled]="!form.checkValidity()">+</button>
     </div>
     <div
       *ngIf="newTask.invalid && (newTask.touched || newTask.dirty)"
