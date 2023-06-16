@@ -1,11 +1,28 @@
-<div>
-  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm"> <!--/*taskNgForm.reset()*/-->
+<div class="taskList">
+  <form (ngSubmit)="add(taskNgForm)" #taskNgForm="ngForm">
+    <!--/*taskNgForm.reset()*/-->
     <div class="input-group">
-      <input name="taskTitle" type="text" placeholder="Todo" [(ngModel)]="newTaskTile" />
+      <input
+        #newTask="ngModel"
+        required
+        minlength="4"
+        name="taskTitle"
+        type="text"
+        placeholder="Todo"
+        [(ngModel)]="newTaskTile"
+      />
       <button>+</button>
     </div>
+    <div
+      *ngIf="newTask.invalid && (newTask.touched || newTask.dirty)"
+      class="validation-error"
+    >
+      <div *ngIf="newTask.errors?.['required']">Task title is required</div>
+      <div *ngIf="newTask.errors?.['minlength']">
+        Task title must at least have 4 characters
+      </div>
+    </div>
   </form>
-
 
   <table class="red">
     <tr *ngFor="let task of tasks; let i = index">
