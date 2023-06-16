@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { TaskListModule } from './task-list/task-list.module';
+import { TasksModule } from './tasks/tasks.module';
 import { CalendarModule } from './calendar/calendar.module';
 
 @NgModule({
@@ -15,7 +15,7 @@ import { CalendarModule } from './calendar/calendar.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TaskListModule,
+    TasksModule,
     CalendarModule
   ],
   providers: [],
