@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Route  } from '@angular/router'; 
 
 @Component({
   selector: 'task-list',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
+  constructor(private route: ActivatedRoute ) {}
+
+  newTaskTile: string = "";
+
+  ngOnInit(): void {
+    var date: Date = new Date(this.route.snapshot.params['date'])
+    console.log(date);
+  }
 
   tasks: Task[] = [
     new Task('List1'),
@@ -16,9 +23,10 @@ export class TaskListComponent implements OnInit {
     new Task('List4'),
   ];
 
-  add(newItem: string) {
-    //alert(newItem)
-    this.tasks.push(new Task(newItem));
+  add() {
+    //this.tasks.push(new Task(newItem));
+    this.tasks.push(new Task(this.newTaskTile));
+    this.newTaskTile = "";
   }
 
   remove(deleteItem: string) {
