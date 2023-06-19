@@ -14,27 +14,20 @@
       <button [disabled]="!form.checkValidity()">+</button>
     </div>
     <div
-      *ngIf="newTaskNgModel.invalid && (newTaskNgModel.touched || newTaskNgModel.dirty)"
+      *ngIf="
+        newTaskNgModel.invalid &&
+        (newTaskNgModel.touched || newTaskNgModel.dirty)
+      "
       class="validation-error"
     >
-      <div *ngIf="newTaskNgModel.errors?.['required']">Task title is required</div>
+      <div *ngIf="newTaskNgModel.errors?.['required']">
+        Task title is required
+      </div>
       <div *ngIf="newTaskNgModel.errors?.['minlength']">
         Task title must at least have 4 characters
       </div>
     </div>
   </form>
 
-  <table class="red">
-    <tr *ngFor="let task of tasks | async; let i = index">
-      <td>
-        <pre [class.is-done]="task.isDone">{{ task.title }}</pre>
-      </td>
-      <td>
-        <button (click)="remove(task)">-</button>
-        <button (click)="task.toggleIsDone()">
-          {{ task.isDone ? "Undo" : "Done" }}
-        </button>
-      </td>
-    </tr>
-  </table>
+  <task-table [tasks]="(tasks | async) ?? []" ></task-table>
 </div>

@@ -1,0 +1,13 @@
+<table class="red">
+  <tr *ngFor="let task of tasks; let i = index">
+    <td>
+      <pre [class.is-done]="task.isDone">{{ task.title }}</pre>
+    </td>
+    <td>
+      <button (click)="remove(task)">-</button>
+      <button (click)="task.toggleIsDone()">
+        {{ task.isDone ? "Undo" : "Done" }}
+      </button>
+    </td>
+  </tr>
+</table>
