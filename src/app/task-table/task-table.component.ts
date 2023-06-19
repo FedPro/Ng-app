@@ -3,7 +3,7 @@ import { TaskItem } from '../tasks/task-item.dto';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'task-table',
+  selector: 'task-table[tasks][onRemove]',
   templateUrl: './task-table.component.html',
   styleUrls: ['./task-table.component.css'],
 })
