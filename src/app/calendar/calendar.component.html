@@ -1,5 +1,7 @@
 <div>
   <mat-calendar [(selected)]="selecteDate"></mat-calendar>
-  {{ selecteDate | date: 'fullDate' }}
-  <a [routerLink]="['/tasks', {date: selecteDate} ]"> Tasks</a>
+  {{ selecteDate | date : "fullDate" }}
+  <div appPaint color="gray" style="border: solid blue 1px; padding: 5px; margin: 3px">
+    <a [routerLink]="['/tasks', { date: selecteDate }]"> Tasks</a>
+  </div>
 </div>
