@@ -9,7 +9,9 @@ export class CalendarComponent implements OnInit {
 
   constructor(){};
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    throw new Error('try out the new GlobalErrorHandler');
+  }
 
   selecteDate = new Date();
 }
